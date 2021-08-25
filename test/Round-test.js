@@ -63,7 +63,7 @@ describe('Round', function() {
     expect(round.turns).to.equal(2);
   });
 
-  it('should store number of incorrect guesses', function() {
+  it('should store id of incorrect guesses', function() {
     const card1 = new Card(1, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const card2 = new Card(2, 'What is the best ice cream flavor?', ['vanilla', 'oreo', 'chocolate'], 'oreo');
     const card3 = new Card(3, 'What sound does a dog make?', ['meow', 'quack', 'woof'], 'woof');
@@ -106,11 +106,13 @@ describe('Round', function() {
     const card1 = new Card(1, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const card2 = new Card(2, 'What is the best ice cream flavor?', ['vanilla', 'oreo', 'chocolate'], 'oreo');
     const card3 = new Card(3, 'What sound does a dog make?', ['meow', 'quack', 'woof'], 'woof');
-    const deck = new Deck([card1, card2, card3]);
+    const card4 = new Card(4, 'What is the best food?', ['cheese', 'fruit', 'chocolate'], 'cheese');
+    const deck = new Deck([card1, card2, card3, card4]);
     const round = new Round(deck);
     round.takeTurn('giraffe');
     round.takeTurn('vanilla');
-    round.takeTurn('woof')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 66% of the questions correctly!');
+    round.takeTurn('woof');
+    round.takeTurn('fruit');
+    expect(round.endRound()).to.equal('** Round over! ** You answered 50% of the questions correctly!');
   });
 });
