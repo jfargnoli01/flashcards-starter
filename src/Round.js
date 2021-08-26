@@ -29,7 +29,7 @@ class Round {
   }
 
   calculatePercentCorrect() {
-    return (this.incorrectGuesses.length / this.turns) * 100;
+    return Math.round((this.incorrectGuesses.length / this.turns) * 100);
   }
   
   endRound() {
