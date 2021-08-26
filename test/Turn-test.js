@@ -4,6 +4,8 @@ const expect = chai.expect;
 const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
+const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
+
 describe('Turn', function() {
   it('should be a function', function() {
     const turn = new Turn();
@@ -21,37 +23,31 @@ describe('Turn', function() {
   });
 
   it('shoud store a card', function() {
-    const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const turn = new Turn('giraffe', card);
     expect(turn.card).to.be.an.instanceOf(Card);
   });
 
   it('should return a guess', function() {
-    const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const turn = new Turn('giraffe', card);
     expect(turn.returnGuess()).to.equal(turn.guess);
   });
 
   it('should return a card', function() {
-    const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const turn = new Turn('giraffe', card);
     expect(turn.returnCard()).to.equal(turn.card);
   });
 
   it('should evaluate the guess', function() {
-    const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const turn = new Turn('giraffe', card);
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
   it('should tell you guess is correct', function() {
-    const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const turn = new Turn('giraffe', card);
     expect(turn.giveFeedback()).to.equal('correct!');
   });
 
   it('should tell you guess is incorrect', function() {
-    const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 'frog'], 'giraffe');
     const turn = new Turn('frog', card);
     expect(turn.giveFeedback()).to.equal('incorrect!');
   });
