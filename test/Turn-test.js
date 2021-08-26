@@ -8,7 +8,6 @@ const card = new Card(2, 'What is the tallest mammal?', ['giraffe', 'elephant', 
 
 describe('Turn', function() {
   it('should be a function', function() {
-    const turn = new Turn();
     expect(Turn).to.be.a('function');
   });
 
