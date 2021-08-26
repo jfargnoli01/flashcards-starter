@@ -11,8 +11,7 @@ const card3 = new Card(3, 'What sound does a dog make?', ['meow', 'quack', 'woof
 
 describe('Round', function() {
   it('should be a function', function() {
-    const round = new Round();
-    expect(round).to.be.a('function');
+    expect(Round).to.be.a('function');
   });
 
   it('should be an instance of Round', function() {

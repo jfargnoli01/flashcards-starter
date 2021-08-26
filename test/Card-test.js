@@ -7,7 +7,6 @@ const card = new Card(1, 'What allows you to define a set of related information
 
 describe('Card', function() {
   it('should be a function', function() {
-    const card = new Card();
     expect(Card).to.be.a('function');
   });
 
